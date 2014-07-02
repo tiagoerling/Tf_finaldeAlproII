@@ -17,6 +17,7 @@ import supermercado.Acumulador;
 import supermercado.Caixa;
 import supermercado.Cliente;
 import supermercado.GeradorClientes;
+import supermercado.QueueLinked;
 import supermercado.QueueTAD;
 
 /**
@@ -29,13 +30,15 @@ public class Simulacao2 implements Simulador {
     private int numeroDeCaixaPrimeiraFila;
     private int numeroDeCaixaSegundaFila;
     private double probabilidadeChegada;
-    private QueueTAD<Cliente> fila1;
-    private QueueTAD<Cliente> fila2;
+    private int tempoMinAtendimento;
+    private int tempoMaxAtendimento;
+    private QueueTAD<Cliente2> fila1;
+    private QueueTAD<Cliente2> fila2;
     private ListDoubleLinked<Caixa> caixa1;
     private ListDoubleLinked<Caixa> caixa2;
     private GeradorClientes geradorClientes;
-    private Acumulador statTemposEsperaFila1;
-    private Acumulador statComprimentosFila1;
+    private int temposEsperaFila1;
+    private int temposEsperaFila2;
     private int tempoAtendimendoCaixa1;
     private int tempoAtendimendoCaixa2;
     private int maxFila1;
@@ -44,6 +47,8 @@ public class Simulacao2 implements Simulador {
     private int atenSemEspera2;
     private int tempoVazia1;
     private int tempoVazia2;
+    private int tempCaxVaziu1;
+    private int tempCaxVaziu2;
 
     public Simulacao2(String a) throws FileNotFoundException, IOException {
 
@@ -65,8 +70,12 @@ public class Simulacao2 implements Simulador {
                 frase = s.next();
                 array = frase.split(";");
                 probabilidadeChegada=  Double.parseDouble(array[1]);
-                
-                
+                frase= s.next();
+                array = frase.split(";");
+                tempoMinAtendimento= Integer.parseInt(array[1]);
+                frase= s.next();
+                array = frase.split(";");
+                tempoMaxAtendimento= Integer.parseInt(array[1]);
                
             }
             s.close();
@@ -74,8 +83,19 @@ public class Simulacao2 implements Simulador {
         } catch(IOException e) {
             System.out.println(e.getMessage()); // se deu problema retorna false
        
-        }         
-               
+        }
+        fila1= new QueueLinked<Cliente2>();
+        fila2= new QueueLinked<Cliente2>();
+        caixa1= new ListDoubleLinked<Caixa>();
+        caixa2 = new ListDoubleLinked<Caixa>();
+        for(int i=0; i<=numeroDeCaixaPrimeiraFila; i++){
+            caixa1.add(new Caixa());
+        }
+        for(int i=0; i<=numeroDeCaixaSegundaFila; i++){
+            caixa2.add(new Caixa());
+        }
+        geradorClientes= new GeradorClientes(probabilidadeChegada);
+        
     }
 
     @Override
@@ -90,7 +110,16 @@ public class Simulacao2 implements Simulador {
 
     @Override
     public void simular() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int tempo= 0;tempo<=duracao; tempo++ ){
+            
+            if(geradorClientes.gerar())
+            {
+                //se cliente chegou, criar um cliente e inserir na fila do caixa
+                Cliente2 c = new Cliente2(geradorClientes.getQuantidadeGerada(),tempo,tempoMinAtendimento,tempoMaxAtendimento);
+                fila1.add(c);
+        }
+        
+    }
     }
 
     @Override
