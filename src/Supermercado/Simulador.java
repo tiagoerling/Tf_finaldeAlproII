@@ -14,13 +14,13 @@ public interface Simulador {
     public void imprimirResultados();
     public void limpar();
     public void simular();
-    public String NumeroDeAtendimentos(int a);
-    public double tempoMedioAtendimento(int a);
-    public int utilizacao(int a);
-    public int MaximoFila(int a);
-    public double mediaTempoDeEspera(int a);
-    public int atendimentosSemEspera(int a);
-    public int tempoFilaVazia(int a);
+    public String NumeroDeAtendimentos();
+    public String tempoMedioAtendimento();
+    public String utilizacao();
+    public String MaximoFila();
+    public String mediaTempoDeEspera();
+    public String atendimentosSemEspera();
+    public String tempoFilaVazia();
     
     
     

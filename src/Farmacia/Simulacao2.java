@@ -50,7 +50,7 @@ public class Simulacao2 implements Simulador {
     private int tempCaxVaziu1;
     private int tempCaxVaziu2;
 
-    public Simulacao2(String a) throws FileNotFoundException, IOException {
+    public Simulacao2(String a){
 
         Path p = Paths.get(a);
         
@@ -118,43 +118,51 @@ public class Simulacao2 implements Simulador {
                 Cliente2 c = new Cliente2(geradorClientes.getQuantidadeGerada(),tempo,tempoMinAtendimento,tempoMaxAtendimento);
                 fila1.add(c);
         }
-        
+            
     }
+    }
+    @Override
+    public String toString(){
+       String resul= "********************RESULTADOS**********************"+"\n"+this.NumeroDeAtendimentos()+"\n"+this.MaximoFila()+"\n"+
+               this.mediaTempoDeEspera()+"\n"+this.atendimentosSemEspera()+"\n"+this.tempoFilaVazia()+"\n"+
+               this.tempoMedioAtendimento()+"\n"+this.utilizacao();
+       return resul;
+               
     }
 
     @Override
-    public String NumeroDeAtendimentos(int a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String NumeroDeAtendimentos() {
+       return ""; 
     }
 
     @Override
-    public double tempoMedioAtendimento(int a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String tempoMedioAtendimento() {
+        return "";
     }
 
     @Override
-    public int utilizacao(int a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String utilizacao() {
+        return "";
     }
 
     @Override
-    public int MaximoFila(int a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String MaximoFila() {
+        return "";
     }
 
     @Override
-    public double mediaTempoDeEspera(int a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String mediaTempoDeEspera() {
+        return "";
     }
 
     @Override
-    public int atendimentosSemEspera(int a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String atendimentosSemEspera() {
+        return "";
     }
 
     @Override
-    public int tempoFilaVazia(int a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String tempoFilaVazia() {
+        return "";
     }
 
 }
