@@ -49,14 +49,12 @@ public class Simulacao2 implements Simulador {
     private int tempoVazia2;
     private int tempCaxVaziu1;
     private int tempCaxVaziu2;
-
+    
     public Simulacao2(String a){
 
         Path p = Paths.get(a);
         
         try ( Scanner s = new Scanner (Files.newBufferedReader(p,Charset.defaultCharset())) ) {
-          
-            while(s.hasNext()) {
                 String frase = s.next();
                 String array[] = new String[2];
                 array = frase.split(";");
@@ -76,9 +74,7 @@ public class Simulacao2 implements Simulador {
                 frase= s.next();
                 array = frase.split(";");
                 tempoMaxAtendimento= Integer.parseInt(array[1]);
-               
-            }
-            s.close();
+                s.close();
             
         } catch(IOException e) {
             System.out.println(e.getMessage()); // se deu problema retorna false
@@ -125,7 +121,7 @@ public class Simulacao2 implements Simulador {
     public String toString(){
        String resul= "********************RESULTADOS**********************"+"\n"+this.NumeroDeAtendimentos()+"\n"+this.MaximoFila()+"\n"+
                this.mediaTempoDeEspera()+"\n"+this.atendimentosSemEspera()+"\n"+this.tempoFilaVazia()+"\n"+
-               this.tempoMedioAtendimento()+"\n"+this.utilizacao();
+               this.tempoMedioAtendimento()+"\n";
        return resul;
                
     }
