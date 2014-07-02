@@ -1,0 +1,6 @@
+Duracao;300
+Numerodecaixaprimeirafila;2
+Numerodecaixasegundafila;3
+Probabilidadechegada;0.1
+
+

@@ -13,7 +13,7 @@ package Supermercado;
 public interface Simulador {
     public void imprimirResultados();
     public void limpar();
-    public void simular
+    public void simular();
     public String NumeroDeAtendimentos(int a);
     public double tempoMedioAtendimento(int a);
     public int utilizacao(int a);

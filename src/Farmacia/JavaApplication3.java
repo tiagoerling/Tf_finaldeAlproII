@@ -4,19 +4,24 @@
  * and open the template in the editor.
  */
 
-package tf_alproii;
+package Farmacia;
+
+import java.io.IOException;
 
 /**
  *
  * @author TIAGO
  */
-public class TF_ALPROII {
+public class JavaApplication3 {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws IOException {
+        
+            //TODO code application logic here
+            Simulacao2 n = new Simulacao2("teste.txt");
+        
     }
     
 }
