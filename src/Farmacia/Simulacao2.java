@@ -66,7 +66,7 @@ public class Simulacao2 implements Simulador {
                 array = frase.split(";");
                 probabilidadeChegada=  Double.parseDouble(array[1]);
                 
-                        
+                
                
             }
             s.close();
