@@ -2,5 +2,7 @@ Duracao;300
 Numerodecaixaprimeirafila;2
 Numerodecaixasegundafila;3
 Probabilidadechegada;0.1
+tempoMinimodeAtendimento;5
+tempoMaximodeAtemdimento;10
 
 
